@@ -340,13 +340,18 @@
          class="pepe"
     />
 <script>
-    const root = document.querySelector(':root');
     const setDay = () => {
+        if ((new Date()).getMonth() !== 11) {
+            return;
+        }
+
+        const root = document.querySelector(':root');
         const day = (new Date()).getDate();
         for (let i = 1; i <= day; i++) {
             root.style.setProperty(`--day-${i}`, 'block');
         }
     };
+
     setInterval(setDay, 60 * 60_000);
     setDay();
 </script>
